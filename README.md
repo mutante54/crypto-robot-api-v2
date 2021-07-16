@@ -61,13 +61,30 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## NestJS Client - Comandos Úteis
+
+Instalando o client do framework NestJS, poderemos utilizar diversos comandos utilitários.
+
+Para instalar o client:
+
+$ npm install -g @nestjs/cli
+
+Por exemplo, para construirmos uma estrutura CRUD para os usuários do sistema:
+
+- Criando um novo módulo
+    `nest g mo users`
+- Criando um novo controller
+    `nest g co users`
+- Criado um novo service
+    `nest g s users`
+
 ## Troubleshooting
 
 Em caso de erro ao iniciar a aplicação:
 
 > *npm ERR! nest-babel-starter@1.0.0 start: `babel-node index.js*
 
-# Motivo do erro: 
+**Motivo do erro:**
 
 Possível incompatibilidade de versões entre uma ou mais libs do projeto com relação ao ambiente de desenvolvimento local (Node/ NPM). Logo, o problema pode ocorrer com qualquer dependência do projeto, principalmente se a mesma já tenha sido instalada no cache global anteriormente.
 
