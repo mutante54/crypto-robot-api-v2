@@ -1,23 +1,33 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Dependencies } from '@nestjs/common';
+import { KNEX_CONNECTION } from '../database/knex.providers';
 
 @Injectable()
+@Dependencies(KNEX_CONNECTION)
 export class UsersService {
-  constructor() {
-    this.users = [
-      {
-        userId: 1,
-        username: 'john',
-        password: 'changeme',
-      },
-      {
-        userId: 2,
-        username: 'maria',
-        password: 'guess',
-      },
-    ];
+  constructor(knex) {
+    this.knex = knex;
+  }
+  
+  async findAll() {
+    return await this.knex('tb_user_account');
   }
 
-  async findOne(username) {
-    return this.users.find(user => user.username === username);
+  /*
+
+  findOne(id) {
+    return this.userAccountRepository.findOne(id);
   }
+
+  findByUsername(username) {
+    return this.userAccountRepository.findOne({ username });
+  }
+
+  findAll() {
+    return this.userAccountRepository.find();
+  }
+
+  async remove(id) {
+    await this.userAccountRepository.delete(id);
+  }
+*/
 }
