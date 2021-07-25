@@ -7,27 +7,12 @@ export class UsersService {
   constructor(knex) {
     this.knex = knex;
   }
-  
+
   async findAll() {
     return await this.knex('tb_user_account');
   }
 
-  /*
-
-  findOne(id) {
-    return this.userAccountRepository.findOne(id);
+  async findByUsername(username) {
+    return await this.knex('tb_user_account').where('username', username).first();
   }
-
-  findByUsername(username) {
-    return this.userAccountRepository.findOne({ username });
-  }
-
-  findAll() {
-    return this.userAccountRepository.find();
-  }
-
-  async remove(id) {
-    await this.userAccountRepository.delete(id);
-  }
-*/
 }
