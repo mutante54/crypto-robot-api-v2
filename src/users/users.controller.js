@@ -23,8 +23,11 @@ export class UsersController {
         return req.user;
     }
 
-    @UseGuards(RolesGuard)
-    @Roles('admin')
+    /**
+     * Return all users
+     */
+    @UseGuards(JwtAuthGuard, RolesGuard)
+    @Roles('ROLE_ADMIN')
     @Get()
     findAll() {
         return this.usersService.findAll();

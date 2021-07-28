@@ -4,6 +4,7 @@ export class UserAccount {
         this.name = '';
         this.document = '';
         this.username = '';
+        this.role = '';
 
         Object.assign(this, opts);
     }

@@ -25,12 +25,13 @@ export class RolesGuard {
      * @param {*} userRoles 
      */
     matchRoles(roles, userRoles) {
+        var matchSomeRole = false;
         userRoles.forEach(role => {
-            if (roles.include(role)) {
-                return true;
+            if (roles.includes(role)) {
+                matchSomeRole = true;
             }
         });
 
-        return false;
+        return matchSomeRole;
     }
 }
